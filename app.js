@@ -67,6 +67,20 @@ app.get('/movies/', (req, res) => {
     res.status(201).send('Received');
   });
     
+  
+  app.post("/setcookie", (req, res) => {
+    //No error checking yet instituted  
+    //movies.push(req.body);
+    //res.status(201).send('Received');
+    let firstName = req.body;
+    console.log(firstName);
+    res.cookie("name", req.body.name)
+    res.end();    
+  });
+
+  //document.cookie = "username=Max Brown";
+
+
 app.delete("/movies/:id", (req, res) => {
   let movieId = req.params["id"];
   if (Number.isNaN(parseInt(movieId, 10))) {
